@@ -20,14 +20,13 @@ function addingBookToHtml(Title, Author, index) {
   button.innerHTML = 'Remove';
   button.className = 'RemoveButton';
   button.setAttribute('id', 'removeButton');
-
   button.addEventListener('click', ((e) => {
     const parent = e.target.parentElement;
     const index = parent.id;
     books.splice(index, 1);
     addAllBooks();
+    localStorage.books = JSON.stringify(books);
   }));
-
   const hr = document.createElement('hr');
   div.appendChild(title);
   div.appendChild(author);
@@ -52,7 +51,7 @@ form.addEventListener('submit', (event) => {
   localStorage.books = JSON.stringify(books);
 });
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.books) {
     books = JSON.parse(localStorage.books);
   }
