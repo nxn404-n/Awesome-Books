@@ -3,7 +3,9 @@ const title = document.getElementById('title');
 const author = document.getElementById('author');
 const list = document.getElementById('list');
 
-let books = [ ];
+let books = [];
+
+
 
 function addingBookToHtml(Title , Author , index){
   let div = document.createElement('div')
@@ -49,4 +51,13 @@ form.addEventListener('submit', (event) => {
   addAllBooks()
   title.value = ""
   author.value = ""
+  localStorage.books = JSON.stringify(books);
+})
+
+window.addEventListener('load', () => {
+  if (localStorage.books) {
+    books = JSON.parse(localStorage.books);
+  }
+  
+  addAllBooks()
 })
