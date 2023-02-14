@@ -4,41 +4,29 @@ const title = document.getElementById('title');
 const author = document.getElementById('author');
 const list = document.getElementById('list');
 
-let books = [];
-
-class Book {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-  }
-}
-
 class Books {
-  constructor(){
+  constructor() {
     this.books = [];
   }
-  
-  add(title, author){
-    let book = new Book(title, author);
-    this.books.push(book);
+
+  add(title, author) {
+    this.books.push({ title, author });
   }
-  remove(index){
+
+  remove(index) {
     this.books.splice(index, 1);
   }
 }
 
-let colection = new Books();
+const colection = new Books();
 
 function addingBookToHtml(Title, Author, index) {
   const div = document.createElement('div');
   div.className = 'listItem';
   div.setAttribute('id', index);
-  const title = document.createElement('p');
-  title.innerHTML = Title;
-  title.className = 'bookTitle';
-  const author = document.createElement('p');
-  author.innerHTML = Author;
-  author.className = 'bookAuthor';
+  const p = document.createElement('p');
+  p.innerHTML = `"${Title}" by ${Author}`;
+  p.className = 'description';
   const button = document.createElement('button');
   button.innerHTML = 'Remove';
   button.className = 'RemoveButton';
@@ -49,10 +37,11 @@ function addingBookToHtml(Title, Author, index) {
     colection.remove(index);
     addAllBooks();
     localStorage.books = JSON.stringify(colection.books);
-    console.log(colection.books)
+    if (colection.books.length === 0) {
+      list.style.border = 'none';
+    }
   }));
-  div.appendChild(title);
-  div.appendChild(author);
+  div.appendChild(p);
   div.appendChild(button);
   list.appendChild(div);
 }
@@ -68,6 +57,7 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   colection.add(title.value, author.value);
   addAllBooks();
+  list.style.border = '2px solid black';
   title.value = '';
   author.value = '';
   localStorage.books = JSON.stringify(colection.books);
@@ -76,6 +66,11 @@ form.addEventListener('submit', (event) => {
 window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.books) {
     colection.books = JSON.parse(localStorage.books);
+  }
+  if (colection.books.length === 0) {
+    list.style.border = 'none';
+  } else {
+    list.style.border = '2px solid black';
   }
   addAllBooks();
 });

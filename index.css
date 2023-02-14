@@ -18,16 +18,23 @@ button {
   border: 2px solid black;
   border-radius: 4px;
   background-color: #fff;
+  height: 30px;
 }
 
-.list {
-  border: 2px solid black;
+button:active {
+  transform: scale(0.9);
 }
 
 .listItem {
+  padding: 0 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 30vw;
+}
+
+.listItem:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.047);
 }
 
 form {
@@ -35,7 +42,6 @@ form {
   flex-direction: column;
   align-items: center;
   width: max-content;
-  gap: 9px;
 }
 
 input {
@@ -54,5 +60,5 @@ input:focus {
 .black-bar {
   border: 1px #000 solid;
   width: 75px;
-  margin-bottom: 26px;
+  margin: 26px 0;
 }

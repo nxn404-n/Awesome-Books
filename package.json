@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test" : "npx stylelint '**/*.{css,scss}' && npx eslint . && echo everything-looks-good"
+    "test" : "npx stylelint '**/*.{css,scss}' && npx eslint . && echo everything-looks-good",
+    "fix" : "npx stylelint '**/*.{css,scss}' --fix && npx eslint . --fix && echo everything-looks-fixed"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
