@@ -31,7 +31,7 @@ let colection = new Books();
 
 function addingBookToHtml(Title, Author, index) {
   const div = document.createElement('div');
-  div.className = 'list';
+  div.className = 'listItem';
   div.setAttribute('id', index);
   const title = document.createElement('p');
   title.innerHTML = Title;
@@ -51,11 +51,9 @@ function addingBookToHtml(Title, Author, index) {
     localStorage.books = JSON.stringify(colection.books);
     console.log(colection.books)
   }));
-  const hr = document.createElement('hr');
   div.appendChild(title);
   div.appendChild(author);
   div.appendChild(button);
-  div.appendChild(hr);
   list.appendChild(div);
 }
 
