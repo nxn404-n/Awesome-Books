@@ -6,6 +6,29 @@ const list = document.getElementById('list');
 
 let books = [];
 
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+}
+
+class Books {
+  constructor(){
+    this.books = [];
+  }
+  
+  add(title, author){
+    let book = new Book(title, author);
+    this.books.push(book);
+  }
+  remove(index){
+    this.books.splice(index, 1);
+  }
+}
+
+let colection = new Books();
+
 function addingBookToHtml(Title, Author, index) {
   const div = document.createElement('div');
   div.className = 'list';
@@ -23,9 +46,10 @@ function addingBookToHtml(Title, Author, index) {
   button.addEventListener('click', ((e) => {
     const parent = e.target.parentElement;
     const index = parent.id;
-    books.splice(index, 1);
+    colection.remove(index);
     addAllBooks();
-    localStorage.books = JSON.stringify(books);
+    localStorage.books = JSON.stringify(colection.books);
+    console.log(colection.books)
   }));
   const hr = document.createElement('hr');
   div.appendChild(title);
@@ -37,23 +61,23 @@ function addingBookToHtml(Title, Author, index) {
 
 function addAllBooks() {
   list.innerHTML = '';
-  books.forEach((book, index) => {
+  colection.books.forEach((book, index) => {
     addingBookToHtml(book.title, book.author, index);
   });
 }
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  books.push({ title: title.value, author: author.value });
+  colection.add(title.value, author.value);
   addAllBooks();
   title.value = '';
   author.value = '';
-  localStorage.books = JSON.stringify(books);
+  localStorage.books = JSON.stringify(colection.books);
 });
 
 window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.books) {
-    books = JSON.parse(localStorage.books);
+    colection.books = JSON.parse(localStorage.books);
   }
   addAllBooks();
 });
