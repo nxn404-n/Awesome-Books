@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap" rel="stylesheet">
     <title>Awesome Books</title>
     <link rel="stylesheet" href="./index.css">
 </head>
@@ -12,10 +15,12 @@
         <h1>Awesome Books</h1>
     </header>
     <div class="list" id="list"></div>
+    <span class="black-bar"></span>
     <form action="" id="form">
+        <h2>Add a new book</h2>
         <input type="text" placeholder="Title" id="title" required><br>
         <input type="text" placeholder="Author" id="author" required><br>
-        <button type="submit">Add</button>
+        <button type="submit" class="submitBtn">Add</button>
     </form>
 </body>
 <script src="./scripts/index.js" type="module"></script>

@@ -1,3 +1,64 @@
 html {
   margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+button {
+  box-shadow: 3px 2px 0;
+  border: 2px solid black;
+  border-radius: 4px;
+  background-color: #fff;
+  height: 30px;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+.listItem {
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30vw;
+}
+
+.listItem:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.047);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+}
+
+input {
+  border: 2px solid black;
+  outline: none;
+}
+
+input:focus {
+  border: 2px solid gray;
+}
+
+.submitBtn {
+  align-self: flex-end;
+}
+
+.black-bar {
+  border: 1px #000 solid;
+  width: 75px;
+  margin: 26px 0;
 }
