@@ -4,45 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap" rel="stylesheet">
     <title>Awesome Books</title>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <header>
         <h1>Awesome Books</h1>
         <ul>
-            <li id="listLink">List</li>
+            <li class="listSelected" id="listLink">List</li>
             <li id="addNewLink">Add New</li>
             <li id="contactLink">Contact</li>
         </ul>
     </header>
-    <section class="listContainer" id="bookList">
+    <section class="listMain " id="bookList">
         <h2>All Awesome Books</h2>
-        <div class="list " id="list"></div>
+        <div class="listContainer">
+            <span>
+                <p class="headerTitle">Title</p>
+                <p class="headerTitle">Author</p>
+            </span>
+            <div class="list" id="list"></div>
+        </div>
     </section>
     <section class="addNew display-none" id="addNewForm">
+        <h2>Add new book</h2>
         <form action="" id="form">
-            <h2>Add a new book</h2>
             <input type="text" placeholder="Title" id="title" required><br>
             <input type="text" placeholder="Author" id="author" required><br>
             <button type="submit" class="submitBtn">Add</button>
         </form>
     </section>
     <section class="contact display-none" id="contactForm">
-        <h2>Contact information</h2>
-        <p>Do you have any questions or you just want to say hello?</p>
-        <ul>
-            <li>Our email is email@contact.com</li>
-            <li>Our phone is 551223414</li>
-            <li>Our addres is Awesome St.987, NY City</li>
-        </ul>
+        <h2>Contact Information</h2>
+        <div class="contactContainer">
+            <span>
+                <p>Do you have any questions or you just want to say "Hello"? <br>You can reach out to us !</p>
+                <ul>
+                    <li>Shayan Khan</li>
+                    <li>kshayan091@gmail.com</li>
+                    <li>+92-3168104861</li>
+                </ul>
+            </span>
+            <div class="image"></div>
+        </div>
     </section>
     <footer>
-        Copyright
+        © MIT License
     </footer>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 <script src="./scripts/index.js" type="module"></script>
 </html>
