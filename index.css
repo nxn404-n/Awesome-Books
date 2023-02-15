@@ -1,12 +1,25 @@
-html {
+* {
   margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  height: 100vh;
 }
 
 h1 {
@@ -19,6 +32,7 @@ button {
   border-radius: 4px;
   background-color: #fff;
   height: 30px;
+  padding: 5px;
 }
 
 button:active {
@@ -30,7 +44,8 @@ button:active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 30vw;
+  width: 100%;
+  height: 40px;
 }
 
 .listItem:nth-child(odd) {
@@ -44,9 +59,17 @@ form {
   width: max-content;
 }
 
+form h2 {
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
 input {
   border: 2px solid black;
   outline: none;
+  padding: 5px 5px;
+  margin-bottom: 10px;
 }
 
 input:focus {
@@ -57,8 +80,88 @@ input:focus {
   align-self: flex-end;
 }
 
-.black-bar {
-  border: 1px #000 solid;
-  width: 75px;
-  margin: 26px 0;
+header {
+  display: flex;
+  width: 95%;
+  border: 2px solid black;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 10px;
+}
+
+header h1 {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+}
+
+header ul li {
+  margin: 0 10px;
+  border-right: 2px solid black;
+  padding-right: 20px;
+  cursor: pointer;
+  transform: scale(1);
+  transition: 0.3s ease-in-out;
+}
+
+header ul li:hover {
+  transform: scale(0.9);
+}
+
+header ul li:nth-child(3) {
+  border-right: 2px solid rgba(0, 0, 0, 0);
+}
+
+.listContainer {
+  text-align: center;
+}
+
+.listContainer h2 {
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.list {
+  border-radius: 5px;
+  max-height: 60vh;
+  overflow: auto;
+  max-width: 700px;
+  width: 90vw;
+}
+
+footer {
+  width: 95%;
+  border: 2px solid black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.display-none {
+  display: none;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact h2 {
+  font-weight: 400;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.contact p {
+  margin: 10px 0;
+}
+
+.contact ul {
+  text-align: left;
+  margin-left: 60px;
+  margin-top: 10px;
 }
