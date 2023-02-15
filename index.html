@@ -13,15 +13,31 @@
 <body>
     <header>
         <h1>Awesome Books</h1>
+        <ul>
+            <li>List</li>
+            <li>Add New</li>
+            <li>Contact</li>
+        </ul>
     </header>
-    <div class="list" id="list"></div>
-    <span class="black-bar"></span>
-    <form action="" id="form">
-        <h2>Add a new book</h2>
-        <input type="text" placeholder="Title" id="title" required><br>
-        <input type="text" placeholder="Author" id="author" required><br>
-        <button type="submit" class="submitBtn">Add</button>
-    </form>
+    <section class="listContainer">
+        <h2>All Awesome Books</h2>
+        <div class="list" id="list"></div>
+    </section>
+    <section class="addNew">
+        <span class="black-bar"></span>
+        <form action="" id="form">
+            <h2>Add a new book</h2>
+            <input type="text" placeholder="Title" id="title" required><br>
+            <input type="text" placeholder="Author" id="author" required><br>
+            <button type="submit" class="submitBtn">Add</button>
+        </form>
+    </section>
+    <section class="contact">
+
+    </section>
+    <footer>
+        Copyright
+    </footer>
 </body>
 <script src="./scripts/index.js" type="module"></script>
 </html>
