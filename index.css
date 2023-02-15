@@ -1,17 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+  border: 2px solid rgba(0, 0, 0, 0.262);
+  border-radius: 7px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background: #4f4f4f;
+}
+
+:root {
+  --font-family: 'Poppins', sans-serif;
+  --font-family-styled: 'Sacramento', cursive;
+  --Box-shadow-outside: -5px -5px 20px rgba(255, 255, 255, 0.849), 5px 5px 9px rgba(94, 104, 121, 0.3);
+  --Box-shadow-inside: inset -5px -5px 9px rgba(255, 255, 255, 0.647), inset 5px 5px 9px rgba(94, 104, 121, 0.3);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 * {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
 }
 
 body {
@@ -20,78 +43,24 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 100vh;
-}
-
-h1 {
-  font-size: 26px;
-}
-
-button {
-  box-shadow: 3px 2px 0;
-  border: 2px solid black;
-  border-radius: 4px;
-  background-color: #fff;
-  height: 30px;
-  padding: 5px;
-}
-
-button:active {
-  transform: scale(0.9);
-}
-
-.listItem {
-  padding: 0 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 40px;
-}
-
-.listItem:nth-child(odd) {
-  background-color: rgba(0, 0, 0, 0.047);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: max-content;
-}
-
-form h2 {
-  margin-bottom: 30px;
-  font-size: 30px;
-  font-weight: 400;
-}
-
-input {
-  border: 2px solid black;
-  outline: none;
-  padding: 5px 5px;
-  margin-bottom: 10px;
-}
-
-input:focus {
-  border: 2px solid gray;
-}
-
-.submitBtn {
-  align-self: flex-end;
+  background-color: #ececec;
 }
 
 header {
   display: flex;
   width: 95%;
-  border: 2px solid black;
   justify-content: space-between;
+  align-items: center;
   margin: 20px;
   padding: 10px;
+  box-shadow: var(--Box-shadow-outside);
+  border-radius: 7px;
 }
 
 header h1 {
   font-weight: 400;
-  font-size: 20px;
+  font-size: 17px;
+  margin-left: 30px;
 }
 
 header ul {
@@ -101,49 +70,160 @@ header ul {
 
 header ul li {
   margin: 0 10px;
-  border-right: 2px solid black;
-  padding-right: 20px;
   cursor: pointer;
-  transform: scale(1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.217), inset 0 0 10px rgba(0, 0, 0, 0);
+  padding: 5px 15px;
+  font-weight: 600;
+  border-radius: 7px;
   transition: 0.3s ease-in-out;
 }
 
-header ul li:hover {
-  transform: scale(0.9);
+.listSelected {
+  background-color: rgb(53, 137, 255);
+  color: white;
 }
 
-header ul li:nth-child(3) {
-  border-right: 2px solid rgba(0, 0, 0, 0);
+.addNewSelected {
+  background-color: rgb(87, 255, 35);
+  color: white;
+}
+
+.contactSelected {
+  background-color: rgb(95, 95, 95);
+  color: white;
+}
+
+header ul li:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.002), inset 0 0 10px rgba(0, 0, 0, 0.105);
+}
+
+.listMain {
+  text-align: center;
+  height: 80vh;
+  width: 90%;
+}
+
+.listMain h2 {
+  margin-bottom: 30px;
+  font-size: 70px;
+  font-family: var(--font-family-styled);
+  opacity: 0.7;
+  animation: text-loads 1.5s ease-in-out;
 }
 
 .listContainer {
-  text-align: center;
+  box-shadow: var(--Box-shadow-outside);
+  width: 100%;
+  padding: 20px;
 }
 
-.listContainer h2 {
-  margin-bottom: 30px;
-  font-size: 30px;
+.listContainer span {
+  display: flex;
+  margin-bottom: 10px;
+  text-align: start;
+  font-weight: 600;
+  margin-left: 15px;
+}
+
+.listContainer > span {
+  font-size: 20px;
+}
+
+.contactContainer p {
+  font-weight: 600;
+}
+
+.listItem p {
   font-weight: 400;
 }
 
+.listContainer span p:nth-child(1) {
+  width: 400px;
+}
+
 .list {
-  border-radius: 5px;
-  max-height: 60vh;
+  max-height: 50vh;
   overflow: auto;
-  max-width: 700px;
-  width: 90vw;
+  width: 100%;
 }
 
-footer {
-  width: 95%;
-  border: 2px solid black;
+.listItem {
+  width: calc(100% - 40px);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.486);
+  margin: 10px 0;
+  border-radius: 7px;
+}
+
+.listItem span {
+  margin: 0;
+}
+
+button {
   padding: 5px 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border-radius: 7px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
 
-.display-none {
-  display: none;
+.RemoveButton {
+  background-color: #ff5c5c;
+  box-shadow: 0 0 10px #ff5c5c;
+}
+
+.RemoveButton:hover {
+  background-color: #ff2727;
+}
+
+.addNew {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addNew h2 {
+  margin-bottom: 30px;
+  font-size: 70px;
+  font-family: var(--font-family-styled);
+  opacity: 0.7;
+  animation: text-loads 1.5s ease-in-out;
+}
+
+form {
+  box-shadow: var(--Box-shadow-outside);
+  padding: 30px;
+  border-radius: 7px;
+  background-color: #fcfcfcaf;
+}
+
+input {
+  outline: none;
+  padding: 7px 20px;
+  font-size: 16px;
+  border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.085);
+  margin-bottom: 15px;
+  border: 2px solid rgba(86, 255, 35, 0);
+  transition: 0.3s ease-in-out;
+}
+
+input:focus {
+  border: 2px solid rgb(87, 255, 35);
+}
+
+.submitBtn {
+  background-color: rgb(87, 255, 35);
+}
+
+.submitBtn:hover {
+  background-color: rgb(50, 215, 0);
 }
 
 .contact {
@@ -151,17 +231,66 @@ footer {
 }
 
 .contact h2 {
-  font-weight: 400;
-  margin-bottom: 20px;
-  font-size: 30px;
+  margin-bottom: 30px;
+  font-size: 70px;
+  font-family: var(--font-family-styled);
+  opacity: 0.7;
+  animation: text-loads 1.5s ease-in-out;
 }
 
-.contact p {
-  margin: 10px 0;
+.contactContainer {
+  box-shadow: var(--Box-shadow-outside);
+  text-align: start;
+  height: 40vh;
+  display: flex;
+  width: 90vw;
+  max-width: 800px;
 }
 
-.contact ul {
-  text-align: left;
-  margin-left: 60px;
-  margin-top: 10px;
+.contactContainer span {
+  width: 70%;
+  padding: 15px 35px;
+}
+
+.contactContainer ul {
+  margin-top: 20px;
+  list-style: none;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.524);
+}
+
+.image {
+  width: 30%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-image: url('./images/shayan.jpeg');
+  border-radius: 0 7px 7px 0;
+}
+
+.display-none {
+  display: none;
+}
+
+footer {
+  width: calc(100% - 40px);
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.878);
+  color: white;
+}
+
+@keyframes text-loads {
+  0% {
+    opacity: 0;
+    letter-spacing: 8px;
+  }
+
+  80% {
+    letter-spacing: 4px;
+  }
+
+  100% {
+    letter-spacing: 0;
+    opacity: 0.7;
+  }
 }
