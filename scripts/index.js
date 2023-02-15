@@ -74,3 +74,29 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   addAllBooks();
 });
+
+// SPA Navigation 
+
+const bookList = document.getElementById('bookList');
+const addNewForm = document.getElementById('addNewForm');
+const contactForm = document.getElementById('contactForm');
+
+const listLink = document.getElementById('listLink');
+const addNewLink = document.getElementById('addNewLink');
+const contactLink = document.getElementById('contactLink');
+
+listLink.addEventListener('click', () => {
+  bookList.classList.remove('display-none');
+  addNewForm.classList.add('display-none');
+  contactForm.classList.add('display-none');
+});
+addNewLink.addEventListener('click', () => {
+  bookList.classList.add('display-none');
+  addNewForm.classList.remove('display-none');
+  contactForm.classList.add('display-none');
+});
+contactLink.addEventListener('click', () => {
+  bookList.classList.add('display-none');
+  addNewForm.classList.add('display-none');
+  contactForm.classList.remove('display-none');
+});

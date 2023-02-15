@@ -11,6 +11,7 @@ html {
   box-sizing: inherit;
 }
 
+
 body {
   display: flex;
   flex-direction: column;
@@ -135,6 +136,10 @@ footer {
   margin-bottom: 10px;
 }
 
-.addNew , .contact {
+/* .addNew , .contact {
+  display: none;
+} */
+
+.display-none {
   display: none;
 }
