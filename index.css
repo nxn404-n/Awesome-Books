@@ -7,10 +7,12 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
-
 
 body {
   display: flex;
@@ -42,7 +44,7 @@ button:active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 95vw;
+  width: 100%;
   height: 40px;
 }
 
@@ -57,9 +59,17 @@ form {
   width: max-content;
 }
 
+form h2 {
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
 input {
   border: 2px solid black;
   outline: none;
+  padding: 5px 5px;
+  margin-bottom: 10px;
 }
 
 input:focus {
@@ -68,12 +78,6 @@ input:focus {
 
 .submitBtn {
   align-self: flex-end;
-}
-
-.black-bar {
-  border: 1px #000 solid;
-  width: 75px;
-  margin: 26px 0;
 }
 
 header {
@@ -126,6 +130,8 @@ header ul li:nth-child(3) {
   border-radius: 5px;
   max-height: 60vh;
   overflow: auto;
+  max-width: 700px;
+  width: 90vw;
 }
 
 footer {
@@ -136,10 +142,26 @@ footer {
   margin-bottom: 10px;
 }
 
-/* .addNew , .contact {
-  display: none;
-} */
-
 .display-none {
   display: none;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact h2 {
+  font-weight: 400;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.contact p {
+  margin: 10px 0;
+}
+
+.contact ul {
+  text-align: left;
+  margin-left: 60px;
+  margin-top: 10px;
 }

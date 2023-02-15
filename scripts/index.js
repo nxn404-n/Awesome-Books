@@ -75,7 +75,7 @@ window.addEventListener('DOMContentLoaded', () => {
   addAllBooks();
 });
 
-// SPA Navigation 
+// SPA Navigation
 
 const bookList = document.getElementById('bookList');
 const addNewForm = document.getElementById('addNewForm');
