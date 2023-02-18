@@ -70,7 +70,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> <a href="">Live</a>
+> <a href="https://nxn404-n.github.io/Awesome-Books/">Live</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
