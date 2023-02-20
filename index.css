@@ -293,3 +293,10 @@ footer {
     opacity: 0.7;
   }
 }
+
+.time {
+  display: flex;
+  align-self: flex-end;
+  margin-right: 30px;
+  position: relative;
+}
