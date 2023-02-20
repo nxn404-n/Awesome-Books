@@ -1,21 +1,15 @@
 /* eslint-disable no-use-before-define */
-const form = document.getElementById('form');
-const title = document.getElementById('title');
-const author = document.getElementById('author');
-const list = document.getElementById('list');
+// eslint-disable-next-line import/named
+import { toastMixin } from './modules/animation.js';
+import { showTime, currentTime } from './modules/shotime.js';
+import {
+  bookList, addNewForm, contactForm, listLink, addNewLink, contactLink,
+} from './modules/spa.js';
+import {
+  form, title, author, list,
+} from './modules/form.js';
 
-/* eslint-disable no-undef */
-const toastMixin = Swal.mixin({
-  toast: true,
-  icon: 'success',
-  title: 'General Title',
-  animation: false,
-  position: 'top-right',
-  showConfirmButton: false,
-  timer: 3000,
-  timerProgressBar: true,
-});
-
+// Book Class
 class Books {
   constructor() {
     this.books = [];
@@ -32,24 +26,24 @@ class Books {
 
 const colection = new Books();
 
-function addingBookToHtml(Title, Author, index) {
+const addingBookToHtml = (Title, Author, index) => {
   const div = document.createElement('div');
   const span = document.createElement('span');
   div.className = 'listItem';
   div.setAttribute('id', index);
-  const title = document.createElement('p');
-  title.innerHTML = Title;
-  title.className = 'title';
-  const author = document.createElement('p');
-  author.innerHTML = Author;
-  author.className = 'author';
-  span.appendChild(title);
-  span.appendChild(author);
+  const titleElement = document.createElement('p');
+  titleElement.textContent = Title;
+  titleElement.className = 'title';
+  const authorElement = document.createElement('p');
+  authorElement.textContent = Author;
+  authorElement.className = 'author';
+  span.appendChild(titleElement);
+  span.appendChild(authorElement);
   const button = document.createElement('button');
-  button.innerHTML = 'Remove';
+  button.textContent = 'Remove';
   button.className = 'RemoveButton';
   button.setAttribute('id', 'removeButton');
-  button.addEventListener('click', ((e) => {
+  button.addEventListener('click', (e) => {
     const parent = e.target.parentElement;
     const index = parent.id;
     colection.remove(index);
@@ -59,18 +53,18 @@ function addingBookToHtml(Title, Author, index) {
       animation: true,
       title: 'Book Removed',
     });
-  }));
+  });
   div.appendChild(span);
   div.appendChild(button);
   list.appendChild(div);
-}
+};
 
-function addAllBooks() {
+const addAllBooks = () => {
   list.innerHTML = '';
   colection.books.forEach((book, index) => {
     addingBookToHtml(book.title, book.author, index);
   });
-}
+};
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -93,14 +87,6 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // SPA Navigation
-
-const bookList = document.getElementById('bookList');
-const addNewForm = document.getElementById('addNewForm');
-const contactForm = document.getElementById('contactForm');
-
-const listLink = document.getElementById('listLink');
-const addNewLink = document.getElementById('addNewLink');
-const contactLink = document.getElementById('contactLink');
 
 listLink.addEventListener('click', () => {
   bookList.classList.remove('display-none');
@@ -126,3 +112,11 @@ contactLink.addEventListener('click', () => {
   addNewLink.classList.remove('addNewSelected');
   contactLink.classList.add('contactSelected');
 });
+
+// Show Time
+
+showTime.innerHTML = currentTime();
+
+setInterval(() => {
+  showTime.innerHTML = currentTime();
+}, 1000);
